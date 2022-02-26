@@ -5,7 +5,7 @@
 ```
 go build
 ```
-or
+or  
 ```
 go run .
 ```
