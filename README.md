@@ -1,4 +1,9 @@
 # ruski korabl idi nahuy
+
+### setup
+you can edit targets list in targets.go
+
+### start
 ```
 go build
 ```
@@ -6,8 +11,6 @@ or
 ```
 go run .
 ```
-
-edit targets list in targets.go  
 
 ##If you are using linux run 'ulimit -n 999999' first!!!
 
