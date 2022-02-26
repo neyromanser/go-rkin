@@ -1,10 +1,10 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"math/rand"
-	"os/exec"
 	"strconv"
+	"syscall"
 )
 
 var (
@@ -96,10 +96,22 @@ func getuseragent() string {
 	return spider[rand.Intn(len(spider))]
 }
 
-func setLimits() {
-	cmd := exec.Command("ulimit", "-n", "999998")
-	err := cmd.Run()
+func setF() {
+	var rLimit syscall.Rlimit
+	err := syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
 	if err != nil {
-		log.Fatal(err.Error())
+		fmt.Println("Error Getting Rlimit ", err)
 	}
+	fmt.Println(rLimit)
+	rLimit.Max = 999998
+	rLimit.Cur = 999999
+	err = syscall.Setrlimit(syscall.RLIMIT_NOFILE, &rLimit)
+	if err != nil {
+		fmt.Println("Error Setting Rlimit ", err)
+	}
+	err = syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
+	if err != nil {
+		fmt.Println("Error Getting Rlimit ", err)
+	}
+	fmt.Println("Rlimit Final", rLimit)
 }
