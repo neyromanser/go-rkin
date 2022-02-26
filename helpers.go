@@ -96,7 +96,7 @@ func getuseragent() string {
 	return spider[rand.Intn(len(spider))]
 }
 
-func setF() {
+func setLimits() {
 	var rLimit syscall.Rlimit
 	err := syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
 	if err != nil {
