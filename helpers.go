@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
 	"strconv"
-	"syscall"
 )
 
 var (
@@ -94,24 +92,4 @@ func getuseragent() string {
 		return "Mozilla/5.0 (compatible; MSIE " + uwu + "; " + os + "; " + token + "Trident/" + engine + ")"
 	}
 	return spider[rand.Intn(len(spider))]
-}
-
-func setLimits() {
-	var rLimit syscall.Rlimit
-	err := syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
-	if err != nil {
-		fmt.Println("Error Getting Rlimit ", err)
-	}
-	fmt.Println(rLimit)
-	rLimit.Max = 999998
-	rLimit.Cur = 999999
-	err = syscall.Setrlimit(syscall.RLIMIT_NOFILE, &rLimit)
-	if err != nil {
-		fmt.Println("Error Setting Rlimit ", err)
-	}
-	err = syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
-	if err != nil {
-		fmt.Println("Error Getting Rlimit ", err)
-	}
-	fmt.Println("Rlimit Final", rLimit)
 }
