@@ -19,8 +19,6 @@ var targets = []string{
 	"https://cloud.rkn.gov.ru/",
 	"https://www.rbc.ru/",
 	"https://www.rt.com/",
-	"http://kremlin.ru/",
-	"http://en.kremlin.ru/",
 	"https://smotrim.ru/",
 	"https://tass.ru/",
 	"https://tvzvezda.ru/",
