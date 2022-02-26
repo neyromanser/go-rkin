@@ -1,7 +1,9 @@
 package main
 
 import (
+	"log"
 	"math/rand"
+	"os/exec"
 	"strconv"
 )
 
@@ -92,4 +94,12 @@ func getuseragent() string {
 		return "Mozilla/5.0 (compatible; MSIE " + uwu + "; " + os + "; " + token + "Trident/" + engine + ")"
 	}
 	return spider[rand.Intn(len(spider))]
+}
+
+func setLimits() {
+	cmd := exec.Command("ulimit", "-n", "999998")
+	err := cmd.Run()
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 }

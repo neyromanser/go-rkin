@@ -5,6 +5,7 @@ import (
 	"github.com/gosuri/uilive"
 	"math/rand"
 	"net/http"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -70,6 +71,11 @@ func flood(t *target){
 }
 
 func main() {
+	os := runtime.GOOS
+	if os == "linux" {
+		setLimits()
+	}
+
 	w = uilive.New()
 	w.Start()
 	defer w.Stop()
