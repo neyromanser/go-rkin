@@ -38,4 +38,5 @@ var targets = []string{
 	"https://yaplakal.com",
 	"https://rbc.ru",
 	"https://bezformata.com",
+	"https://shop-rt.com",
 }
