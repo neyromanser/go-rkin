@@ -76,4 +76,5 @@ var targets = []string{
 	"https://www.belapb.by",
 	"https://bankdabrabyt.by",
 	"https://belinvestbank.by/individual",
+	"https://www.rw.by/en/",
 }
